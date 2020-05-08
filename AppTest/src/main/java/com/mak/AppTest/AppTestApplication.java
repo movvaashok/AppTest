@@ -1,14 +1,16 @@
 package com.mak.AppTest;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.slf4j.*;
 
 @SpringBootApplication
 public class AppTestApplication {
 	public static void main(String[] args) {
-		Logger log= LoggerFactory.getLogger(AppTestApplication.class);
+		Logger log = LoggerFactory.getLogger(AppTestApplication.class);
 		SpringApplication.run(AppTestApplication.class, args);
+		log.trace("Application is up and running!");
 	}
 
 }
