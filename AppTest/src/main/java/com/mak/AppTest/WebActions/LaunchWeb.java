@@ -27,6 +27,7 @@ public class LaunchWeb {
 		webBaseClass.getObjWebDriver().get(url);
 		BiFunction<WebDriver, String, Boolean> waitForLoad = (driver, webPageState) -> ((JavascriptExecutor) driver)
 				.executeScript("return document.readyState").equals(webPageState);
+		threadSleep(2000);
 		if (waitForLoad.apply(webBaseClass.getObjWebDriver(), "complete")) {
 			log.info("Browser Launched Successfully");
 			return true;

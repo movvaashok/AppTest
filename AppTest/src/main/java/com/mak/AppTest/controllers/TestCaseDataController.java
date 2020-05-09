@@ -50,16 +50,16 @@ public class TestCaseDataController {
 				: testCaseDataRepository.findById(testCaseId);
 	}
 
-	@DeleteMapping("/apptest/rest/testCases/{testCaseId}")
+	@DeleteMapping("/apptest/rest/removeTestCase/{testCaseId}")
 	public ResponseEntity<?> deleteTestCase(@PathVariable("testCaseId") String testCaseId) {
 		if (testCaseId.isEmpty() || testCaseId == null) {
 			return ResponseEntity.badRequest().build();
 		} else {
 			log.trace("Deleting testcase with id: " + testCaseId);
-			testCaseDataRepository.deleteById(testCaseId);
-			log.trace("Checking deleted testcase with id: " + testCaseId);
-			return testCaseDataRepository.findById(testCaseId).get().equals(null) ? ResponseEntity.ok().build()
-					: ResponseEntity.unprocessableEntity().build();
+			testCaseDataRepository.findById(testCaseId)
+			.ifPresent((x)->testCaseDataRepository.deleteById(x.getTestcaseId()));
+			return testCaseDataRepository.findById(testCaseId).isEmpty()? ResponseEntity.accepted().build():
+				ResponseEntity.badRequest().build();
 		}
 	}
 
