@@ -1,5 +1,6 @@
 package com.mak.AppTest.Beans;
 
+import java.io.File;
 import java.net.URL;
 import java.util.List;
 
@@ -7,13 +8,15 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Component;
 
 import lombok.Data;
 
 @Data
+@Component
 public class WebBaseClass {
 	Logger log = LoggerFactory.getLogger(WebBaseClass.class);
-	private String webResourcesPath="/resources/webTestResources";
+	private File webResourcesFile=new File("./src/main/resources/webTestResources/");
 	private WebDriver objWebDriver = null;
 	private String axe_filename = "";
 	private int brw_count = 0;

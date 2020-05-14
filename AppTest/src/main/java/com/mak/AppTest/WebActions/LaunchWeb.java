@@ -1,5 +1,6 @@
 package com.mak.AppTest.WebActions;
 
+import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 import java.util.function.BiFunction;
 import org.openqa.selenium.JavascriptExecutor;
@@ -9,16 +10,18 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import com.mak.AppTest.Beans.WebBaseClass;
 
+@Component
 public class LaunchWeb {
 	Logger log = LoggerFactory.getLogger(WebBaseClass.class);
 	@Autowired
 	WebBaseClass webBaseClass;
 
-	public boolean launchWebBrowser(String url) {
-		System.setProperty("webdriver.chrome.driver", webBaseClass.getWebResourcesPath() + "chromedriver.exe");
+	public boolean launchBrowser(String keyword,String elementIdentifier,String url) throws IOException {
+		System.setProperty("webdriver.chrome.driver", webBaseClass.getWebResourcesFile().getCanonicalPath() + "/chromedriver.exe");
 		ChromeOptions options = new ChromeOptions();
 		options.addArguments("--start-maximized");
 		options.addArguments("disable-infobars");
@@ -39,7 +42,7 @@ public class LaunchWeb {
 		}
 	}
 
-	public void threadSleep(int milliSeconds) {
+	private void threadSleep(int milliSeconds) {
 		try {
 			Thread.sleep(milliSeconds);
 		} catch (Exception e) {

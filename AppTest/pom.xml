@@ -17,7 +17,6 @@
 
 	<properties>
 		<java.version>1.8</java.version>
-		<docker.registry>movva4088/apptest_1dev</docker.registry>
 	</properties>
 
 	<dependencies>
@@ -88,7 +87,11 @@
 			<artifactId>java-client</artifactId>
 			<version>7.2.0</version>
 		</dependency>
-
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-configuration-processor</artifactId>
+			<optional>true</optional>
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -97,46 +100,6 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
-
-			<plugin>
-				<groupId>io.fabric8</groupId>
-				<artifactId>docker-maven-plugin</artifactId>
-				<configuration>
-					<verbose>true</verbose>
-					<registry>${docker.registry}</registry>
-					<dockerFileDir>src/main/docker</dockerFileDir>
-					<images>
-						<image>
-							<name>${docker.registry}:${project.version}</name>
-							<build>
-								<dockerFileDir>src/main/docker</dockerFileDir>
-								<tags>
-									<tag>${project.version}</tag>
-									<tag>latest</tag>
-								</tags>
-								<assembly>
-									<inline>
-										<dependencySets>
-											<dependencySet>
-												<includes>
-													<include> ${project.groupId}:${project.artifactId}</include>
-												</includes>
-												<outputFileNameMapping>app.jar</outputFileNameMapping>
-											</dependencySet>
-										</dependencySets>
-									</inline>
-								</assembly>
-							</build>
-						</image>
-					</images>
-
-
-				</configuration>
-			</plugin>
-
-
-
-
 		</plugins>
 	</build>
 

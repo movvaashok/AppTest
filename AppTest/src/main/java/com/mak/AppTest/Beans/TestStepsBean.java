@@ -10,9 +10,13 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-class TestStepsBean{
+public class TestStepsBean{
 	private String keyword;
 	private String elementIdentifier;
 	private String value;
+	@Override
+	public String toString() {
+		return keyword+":"+elementIdentifier+":"+value;
+	}
 
 }
