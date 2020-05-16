@@ -18,8 +18,8 @@ Add additional notes about how to deploy this on a live system
 
 ## Built With
 
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
+* [Spring Boot](https://spring.io/projects/spring-boot) - The App Development framework used
+* [Maven](https://maven.apache.org/) - Dependency Management.
 
 ## Versioning
 
@@ -34,6 +34,6 @@ See also the list of [contributors](https://github.com/movvaashok/AppTest/contri
 
 ## License
 
-This project is licensed under the **- see the [LICENSE.md](LICENSE.md) file for details
+This project is licensed under the **Apache License 2.0** - see the [LICENSE](LICENSE.md) file for details
 
 ## Acknowledgments
