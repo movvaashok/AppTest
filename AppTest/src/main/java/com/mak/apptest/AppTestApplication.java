@@ -1,4 +1,4 @@
-package com.mak.AppTest;
+package com.mak.apptest;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
