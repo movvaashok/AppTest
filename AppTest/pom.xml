@@ -92,6 +92,14 @@
 			<artifactId>spring-boot-configuration-processor</artifactId>
 			<optional>true</optional>
 		</dependency>
+
+		<!-- BEGIN : Swagger UI  -->
+		<dependency>
+			<groupId>org.springdoc</groupId>
+			<artifactId>springdoc-openapi-ui</artifactId>
+			<version>1.3.9</version>
+		</dependency>
+		<!-- END : Swagger UI  -->
 	</dependencies>
 
 	<build>
