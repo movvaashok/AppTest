@@ -1,10 +1,9 @@
 package com.mak.apptest.repository;
 
-import java.util.Optional;
-
+import com.mak.apptest.Beans.KeyWordMappingBean;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
-import com.mak.apptest.Beans.*;
+import java.util.Optional;
 
 public interface KeywordMappingsRepository extends MongoRepository<KeyWordMappingBean, String> {
 	Optional<KeyWordMappingBean> findByKeyword(String keyword);

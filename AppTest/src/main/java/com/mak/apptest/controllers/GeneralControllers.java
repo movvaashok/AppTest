@@ -8,12 +8,12 @@ public class GeneralControllers {
 
 	@GetMapping("/")
 	public String home() {
-		return("<h1>Welcome !</h1>");
-	}
+        return ("<h1>Welcome !</h1>");
+    }
 
 	@GetMapping("/error")
 	public String error() {
-		return("<h1>Error encountered Bro! </h1>");
-	}
+        return ("<h1>Error encountered Bro! </h1>");
+    }
 
 }

@@ -1,8 +1,7 @@
 package com.mak.apptest.services;
 
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
-
+import com.mak.apptest.Beans.TestStepResultBean;
+import com.mak.apptest.controllers.TestExecutionController;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeansException;
@@ -10,8 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Service;
 
-import com.mak.apptest.Beans.TestStepResultBean;
-import com.mak.apptest.controllers.TestExecutionController;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 
 @Service
 public class TestExecutorService {

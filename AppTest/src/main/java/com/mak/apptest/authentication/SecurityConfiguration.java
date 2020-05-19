@@ -10,32 +10,33 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 
 @EnableWebSecurity
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
-	
-	@Override
-	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-		auth.inMemoryAuthentication()
-		.withUser("Ashok")
-		.password("Ashok")
-		.roles("Dev")
-		.and()
-		.withUser("Hemanth")
-		.password("Hemanth")
-		.roles("Tester");
-	}
-	@Bean
-	public PasswordEncoder password(){
-		return NoOpPasswordEncoder.getInstance();
-	}
-	
-	
-	@Override
-	protected void configure(HttpSecurity http) throws Exception {
-		http.authorizeRequests()
-		.antMatchers("/**").hasRole("Dev")
-		.antMatchers("/appTest/rest").hasAnyRole("Tester","Dev")
-		.antMatchers("/").permitAll()
-		.and().formLogin();
-	}
 
-	
+	@Override
+    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+        auth.inMemoryAuthentication()
+                .withUser("Ashok")
+                .password("Ashok")
+                .roles("Dev")
+                .and()
+                .withUser("Hemanth")
+                .password("Hemanth")
+                .roles("Tester");
+    }
+
+    @Bean
+    public PasswordEncoder password() {
+        return NoOpPasswordEncoder.getInstance();
+    }
+
+
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
+        http.authorizeRequests()
+                .antMatchers("/**").hasRole("Dev")
+                .antMatchers("/appTest/rest").hasAnyRole("Tester", "Dev")
+                .antMatchers("/").permitAll()
+                .and().formLogin();
+    }
+
+
 }

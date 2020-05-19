@@ -1,8 +1,6 @@
 package com.mak.apptest.WebActions;
 
-import java.io.IOException;
-import java.util.concurrent.TimeUnit;
-import java.util.function.BiFunction;
+import com.mak.apptest.Beans.WebBaseClass;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -12,7 +10,9 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.mak.apptest.Beans.WebBaseClass;
+import java.io.IOException;
+import java.util.concurrent.TimeUnit;
+import java.util.function.BiFunction;
 
 @Component
 public class LaunchWeb {
@@ -20,7 +20,7 @@ public class LaunchWeb {
 	@Autowired
 	WebBaseClass webBaseClass;
 
-	public boolean launchBrowser(String keyword,String elementIdentifier,String url) throws IOException {
+	public boolean launchBrowser(String keyword, String elementIdentifier, String url) throws IOException {
 		System.setProperty("webdriver.chrome.driver", webBaseClass.getWebResourcesFile().getCanonicalPath() + "/chromedriver.exe");
 		ChromeOptions options = new ChromeOptions();
 		options.addArguments("--start-maximized");

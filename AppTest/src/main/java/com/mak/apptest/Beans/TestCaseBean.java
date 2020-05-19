@@ -1,21 +1,20 @@
 package com.mak.apptest.Beans;
 
 
-import java.util.List;
-
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.stereotype.Component;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import java.util.List;
 
 @Component
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Document(collection= "TestCasesData")
+@Document(collection = "TestCasesData")
 public class TestCaseBean {
 	@Id
 	private String testcaseId;

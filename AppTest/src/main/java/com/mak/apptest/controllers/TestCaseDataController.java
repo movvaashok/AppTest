@@ -1,21 +1,15 @@
 package com.mak.apptest.controllers;
 
-import java.util.List;
-import java.util.Optional;
-
+import com.mak.apptest.Beans.TestCaseBean;
+import com.mak.apptest.repository.TestCaseDataRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
-import com.mak.apptest.Beans.TestCaseBean;
-import com.mak.apptest.repository.TestCaseDataRepository;
+import java.util.List;
+import java.util.Optional;
 
 @RestController
 public class TestCaseDataController {
@@ -57,9 +51,9 @@ public class TestCaseDataController {
 		} else {
 			log.trace("Deleting testcase with id: " + testCaseId);
 			testCaseDataRepository.findById(testCaseId)
-			.ifPresent((x)->testCaseDataRepository.deleteById(x.getTestcaseId()));
-			return testCaseDataRepository.findById(testCaseId).isEmpty()? ResponseEntity.accepted().build():
-				ResponseEntity.badRequest().build();
+					.ifPresent((x) -> testCaseDataRepository.deleteById(x.getTestcaseId()));
+			return testCaseDataRepository.findById(testCaseId).isEmpty() ? ResponseEntity.accepted().build() :
+					ResponseEntity.badRequest().build();
 		}
 	}
 
