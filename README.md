@@ -16,10 +16,12 @@ MongoDB shell version v4.2.6
 
 Add additional notes about how to deploy this on a live system
 
-## Built With
+## Build
 
 * [Spring Boot](https://spring.io/projects/spring-boot) - The App Development framework used
 * [Maven](https://maven.apache.org/) - Dependency Management.
+
+command: mvn clean install spring-boot:run
 
 ## Versioning
 
